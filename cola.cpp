@@ -12,7 +12,7 @@ Stack <T> operator +( const Stack <T> &s1 , const Stack <T> &s2)
     Stack <T> result=s1;
     for (unsigned i = 0; i < s2.items.size (); ++i)
     {
-            result.items.push_back(s2.items[i]);
+            result.items.push_front(s2.items[i]);
     }
     return result;
 }
@@ -33,7 +33,7 @@ Stack <T> operator -(const Stack <T> &s1 , const Stack <T> &s2)
         }
         if(cont==0)
         {
-            result.items.push_back(s1.items[i]);
+            result.items.push_front(s1.items[i]);
         }
 
     }
@@ -43,9 +43,9 @@ Stack <T> operator -(const Stack <T> &s1 , const Stack <T> &s2)
 template<class T>
 ostream& operator << (ostream &output, const Stack<T> &result)
 {
-    for(unsigned i=0;i<result.items.size();i++)
+    for(unsigned x=0;x<result.items.size();x++)
     {
-        output <<result.items[i] << endl;
+        output <<result.items[x]<<" ";
     }
     return output;
 }
@@ -64,12 +64,12 @@ class Stack
         }
         void push ( const T & item )
         {
-            items . push_back ( item );
+            items . push_front ( item );
         }
         T pop ()
         {
-            T last = items . back ();
-            items . pop_back ();
+            T last = items . front ();
+            items . pop_front ();
             return last ;
         }
         void print()
@@ -89,10 +89,11 @@ int main()
     a. push (2) ;
     a.push(3);
     a.push(4);
+    b. push (2) ;
     b. push (1) ;
-    b. push (3) ;
     Stack <int > c = a - b;
-    c.print();
+    //c.print();
+    cout<<c;
 
 
 }

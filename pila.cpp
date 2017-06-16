@@ -32,10 +32,10 @@ Stack <T> operator -(const Stack <T> &s1 , const Stack <T> &s2)
 {
     Stack <T> result;
 
-    for (unsigned i = s1.items.size()-1; i > 0  ; --i)
+    for (unsigned i = s1.items.size()-1; i > 0  ; i--)
     {
         int cont =0;
-        for(unsigned j = s2.items.size()-1; j > 0; --j)
+        for(unsigned j = s2.items.size()-1; j > 0; j--)
         {
             if(s1.items[i] == s2.items[j])
             {
@@ -96,13 +96,13 @@ class Stack
 int main()
 {
     Stack <int > a, b;
-    a. push (1) ;
-    a. push (2) ;
+    a.push(1);
+    a.push(2);
     a.push(3);
     a.push(4);
-    b. push (5) ;
-    b. push (6) ;
+    b.push(3);
+    b.push(4);
     Stack <int > c = a + b;
-    //c.print();
-    cout<<c;
+    c.print();
+    //cout<<c;
 }

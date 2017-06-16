@@ -20,7 +20,7 @@ Stack <T> operator +( const Stack <T> &s1 , const Stack <T> &s2)
 template <class T>
 Stack <T> operator -(const Stack <T> &s1 , const Stack <T> &s2)
 {
-     Stack <T> result;
+    Stack <T> result;
     for (unsigned i = 0; i < s1.items.size() ; i++)
     {
         int cont =0;
@@ -40,10 +40,22 @@ Stack <T> operator -(const Stack <T> &s1 , const Stack <T> &s2)
     return result;
 }
 
+template<class T>
+ostream& operator << (ostream &output, const Stack<T> &result)
+{
+    for(unsigned i=0;i<result.items.size();i++)
+    {
+        output <<result.items[i] << endl;
+    }
+    return output;
+}
+
 template <class T>
 class Stack
 {
     friend Stack <T> operator +<>( const Stack <T> &s1 , const Stack <T> & s2);
+    friend Stack <T> operator -<>( const Stack <T> &s1 , const Stack <T> & s2);
+    friend ostream& operator << <>(ostream &output, const Stack<T> &result);
     public :
         vector <T> items ;
         bool empty()const
@@ -81,4 +93,6 @@ int main()
     b. push (3) ;
     Stack <int > c = a - b;
     c.print();
+
+
 }

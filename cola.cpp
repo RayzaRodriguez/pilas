@@ -12,7 +12,7 @@ Stack <T> operator +( const Stack <T> &s1 , const Stack <T> &s2)
     Stack <T> result=s1;
     for (unsigned i = 0; i < s2.items.size (); ++i)
     {
-            result.items.push_front(s2.items[i]);
+            result.items.push_back(s2.items[i]);
     }
     return result;
 }
@@ -33,7 +33,7 @@ Stack <T> operator -(const Stack <T> &s1 , const Stack <T> &s2)
         }
         if(cont==0)
         {
-            result.items.push_front(s1.items[i]);
+            result.items.push_back(s1.items[i]);
         }
 
     }
@@ -58,18 +58,19 @@ class Stack
     friend ostream& operator << <>(ostream &output, const Stack<T> &result);
     public :
         vector <T> items ;
+
         bool empty()const
         {
             return items.empty () ;
         }
         void push ( const T & item )
         {
-            items . push_front ( item );
+            items . push_back ( item );
         }
         T pop ()
         {
-            T last = items . front ();
-            items . pop_front ();
+            T last = items.front();
+            items.pop_front();
             return last ;
         }
         void print()
@@ -89,10 +90,14 @@ int main()
     a. push (2) ;
     a.push(3);
     a.push(4);
-    b. push (2) ;
+    a.pop();
     b. push (1) ;
+    b. push (2) ;
     Stack <int > c = a - b;
-    //c.print();
+    cout<<a;
+    cout<<"\n";
+    cout<<b;
+    cout<<"\n";
     cout<<c;
 
 

@@ -54,7 +54,7 @@ Stack <T> operator -(const Stack <T> &s1 , const Stack <T> &s2)
 template<class T>
 ostream& operator << (ostream &output, const Stack<T> &result)
 {
-    for(unsigned i=0;i<result.items.size();i++)
+    for(unsigned i=result.items.size();i<0;i++)
     {
         output <<result.items[i] << endl;
     }
@@ -100,9 +100,14 @@ int main()
     a.push(2);
     a.push(3);
     a.push(4);
+    a.pop();
     b.push(3);
     b.push(4);
     Stack <int > c = a + b;
+    a.print();
+    cout<<"\n";
+    b.print();
+    cout<<"\n";
     c.print();
     //cout<<c;
 }
